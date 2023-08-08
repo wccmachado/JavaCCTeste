@@ -1,0 +1,26 @@
+options {
+    STATIC = true;
+    JDK_VERSION = "1.5";
+}
+PARSER_BEGIN(SimpleParser)
+
+import java.io.Reader;
+import java.io.StringReader;
+public class SimpleParser {
+    public static void main(String[] args){
+      String someInput = "a";
+      StringReader sr = new StringReader(someInput);
+      Reader r = new StringReader(sr);
+      SimpleParser parser = new SimpleParser(r);
+      parser.A();
+    }
+}
+
+PARSER_END(SimpleParser)
+TOKEN : {
+    <A: "a">
+}
+void A():{}
+{
+    <A>{System.out.println("Token found");}
+}
